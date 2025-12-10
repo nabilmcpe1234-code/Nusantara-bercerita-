@@ -1,0 +1,91 @@
+/* styles.css for Tempat Kita Bercerita */
+:root{
+  --bg:#fff8f2;
+  --accent:#B36B2C; /* earthy brown */
+  --accent-2:#0F6B4A; /* green */
+  --muted:#7a6b5a;
+  --card: rgba(255,255,255,0.9);
+  --glass: rgba(255,255,255,0.6);
+  --shadow: 0 8px 24px rgba(11,10,9,0.08);
+  --radius:12px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;}
+body{
+  background: linear-gradient(180deg,#fffefc 0%, #f7f3ef 60%);
+  color:#3b2f2a;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* NAV */
+.nav{
+  display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:linear-gradient(90deg, rgba(179,107,44,0.06), rgba(15,107,74,0.03));
+  border-bottom:1px solid rgba(11,10,9,0.03);
+  position:sticky;top:0;backdrop-filter: blur(4px);z-index:20;
+}
+.brand{display:flex;gap:10px;align-items:center}
+.brand img{width:36px;height:36px;border-radius:8px}
+.brand span{font-weight:700;color:var(--accent)}
+.nav-right{display:flex;gap:10px;align-items:center}
+.nav-right input{padding:8px 12px;border-radius:999px;border:1px solid rgba(59,47,42,0.08);width:260px}
+.btn{padding:8px 12px;border-radius:10px;border:0;background:transparent;cursor:pointer}
+.btn.primary{background:var(--accent);color:white;box-shadow:var(--shadow)}
+.btn.muted{background:transparent;border:1px solid rgba(59,47,42,0.06)}
+
+/* HERO */
+.hero{
+  display:flex;align-items:center;justify-content:space-between;padding:48px 20px;background-image:linear-gradient(180deg, rgba(243,236,228,0.6), rgba(255,255,255,0));
+  gap:20px;
+}
+.hero-inner{max-width:680px}
+.hero h1{font-size:32px;margin:0;color:var(--accent)}
+.hero p{margin:8px 0 18px;color:var(--muted)}
+.hero-actions{display:flex;gap:10px}
+.hero-pattern{
+  width:260px;height:180px;border-radius:16px;background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300"><rect width="100%" height="100%" fill="%23F9F0E8"/><g fill="%23B36B2C" opacity="0.07"><circle cx="40" cy="40" r="36"/><circle cx="120" cy="80" r="50"/><path d="M200 220c-30-40-80-60-120-30"/></g></svg>');
+  border:1px solid rgba(59,47,42,0.03)
+}
+
+/* Layout */
+main.main{display:grid;grid-template-columns:1fr 320px;gap:24px;padding:24px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.card{
+  background:var(--card);padding:16px;border-radius:12px;box-shadow:var(--shadow);border:1px solid rgba(59,47,42,0.03);
+}
+.card img{width:100%;height:160px;object-fit:cover;border-radius:10px;margin-bottom:10px}
+.card h3{margin:0;color:var(--accent)}
+.card p{color:var(--muted);margin:8px 0}
+.card .meta{font-size:13px;color:#846a57;margin-top:8px;display:flex;justify-content:space-between;align-items:center}
+.card .actions button{margin-left:8px}
+
+/* Sidebar */
+.sidebar{position:sticky;top:84px}
+.widget{background:var(--glass);padding:12px;border-radius:10px;margin-bottom:12px;border:1px solid rgba(11,10,9,0.02)}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{background:transparent;border:1px dashed rgba(59,47,42,0.06);padding:6px 8px;border-radius:999px}
+
+/* Modal */
+.modal{position:fixed;inset:0;background:rgba(11,10,9,0.35);display:flex;align-items:center;justify-content:center;padding:20px;z-index:40}
+.modal.hidden{display:none}
+.modal-card{width:100%;max-width:720px;background:white;border-radius:12px;padding:18px;position:relative}
+.admin-card{max-width:900px}
+.modal-card .close{position:absolute;right:12px;top:10px;background:transparent;border:0;font-size:22px;cursor:pointer}
+.modal-card label{display:block;margin:8px 0;font-size:14px;color:var(--muted)}
+.modal-card input[type="text"], .modal-card input[type="password"], .modal-card textarea, .modal-card select{
+  width:100%;padding:10px;border-radius:8px;border:1px solid rgba(59,47,42,0.06)
+}
+.form-actions{display:flex;gap:8px;margin-top:12px;justify-content:flex-end}
+
+/* Footer */
+.footer{display:flex;justify-content:space-between;padding:18px 24px;border-top:1px solid rgba(11,10,9,0.03);margin-top:24px;background:linear-gradient(180deg, transparent, rgba(243,236,228,0.6))}
+.footer .footer-right{color:var(--muted)}
+
+/* Small screens */
+@media (max-width:900px){
+  main.main{grid-template-columns:1fr}
+  .nav-right input{display:none}
+  .hero{flex-direction:column;align-items:flex-start}
+  .hero-pattern{width:100%;height:120px}
+}

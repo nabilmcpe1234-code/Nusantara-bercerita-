@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tempat Kita Bercerita — Nusantara</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <nav class="nav">
+    <div class="brand">
+      <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='36' height='36'><circle cx='18' cy='18' r='18' fill='%23B36B2C'/></svg>" alt="logo">
+      <span>Tempat Kita Bercerita</span>
+    </div>
+    <div class="nav-right">
+      <input id="searchInput" placeholder="Cari cerita, judul, atau penulis..." />
+      <button id="btn-open-form" class="btn">Bagikan Cerita</button>
+      <button id="btn-admin" class="btn muted">Admin</button>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <h1>Nusantara — Suara dari Setiap Sudut</h1>
+      <p>Wadah karya, cerita, dan aspirasi masyarakat Indonesia. Bagikan ceritamu, atau jelajahi kisah-kisah inspiratif.</p>
+      <div class="hero-actions">
+        <button id="btn-open-form-hero" class="btn primary">Bagikan Cerita</button>
+        <button id="btn-view-gallery" class="btn">Lihat Galeri</button>
+      </div>
+    </div>
+    <div class="hero-pattern" aria-hidden="true"></div>
+  </header>
+
+  <main class="main">
+    <section class="cards" id="storiesList">
+      <!-- cerita akan di-render di sini -->
+    </section>
+
+    <aside class="sidebar">
+      <div class="widget">
+        <h3>Populer Minggu Ini</h3>
+        <ul id="popularList"></ul>
+      </div>
+
+      <div class="widget">
+        <h3>Kategori</h3>
+        <div class="tags">
+          <button class="tag">Budaya</button>
+          <button class="tag">Perjalanan</button>
+          <button class="tag">Aspirasi</button>
+          <button class="tag">Lainnya</button>
+        </div>
+      </div>
+
+      <div class="widget about">
+        <h3>Tentang</h3>
+        <p>Tempat Kita Bercerita — platform komunitas bernuansa Nusantara untuk berbagi kisah dan aspirasi.</p>
+      </div>
+    </aside>
+  </main>
+
+  <!-- Modal: Kirim Cerita -->
+  <div id="modalForm" class="modal hidden">
+    <div class="modal-card">
+      <button class="close" id="closeForm">&times;</button>
+      <h2>Bagikan Cerita & Karya</h2>
+      <form id="storyForm">
+        <label>Nama / Penulis
+          <input type="text" id="author" required />
+        </label>
+        <label>Judul Cerita
+          <input type="text" id="title" required />
+        </label>
+        <label>Kategori
+          <select id="category">
+            <option>Budaya</option>
+            <option>Perjalanan</option>
+            <option>Aspirasi</option>
+            <option>Lainnya</option>
+          </select>
+        </label>
+        <label>Cerita (tulis disini)
+          <textarea id="content" rows="6" required></textarea>
+        </label>
+        <label>Upload Gambar (opsional)
+          <input type="file" id="imageInput" accept="image/*" />
+        </label>
+        <div class="form-actions">
+          <button type="submit" class="btn primary">Kirim (Masuk Antrian)</button>
+          <button type="button" id="btnClear" class="btn muted">Reset</button>
+        </div>
+      </form>
+      <p class="muted small">Semua kiriman akan masuk ke antrian moderator. Admin dapat menyetujui atau menolak.</p>
+    </div>
+  </div>
+
+  <!-- Modal: Admin -->
+  <div id="modalAdmin" class="modal hidden">
+    <div class="modal-card admin-card">
+      <button class="close" id="closeAdmin">&times;</button>
+      <h2>Mode Admin</h2>
+      <div id="adminLogin">
+        <label>Password Admin
+          <input type="password" id="adminPass" />
+        </label>
+        <div class="form-actions">
+          <button id="btnAdminLogin" class="btn primary">Login</button>
+        </div>
+      </div>
+
+      <div id="adminPanel" class="hidden">
+        <h3>Antrian Kiriman</h3>
+        <div id="queueList"></div>
+        <h3>Manajemen Cerita</h3>
+        <div id="manageList"></div>
+        <div class="form-actions">
+          <button id="btnLogout" class="btn muted">Logout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div>
+      <strong>Tempat Kita Bercerita</strong> — Nusantara • © <span id="year"></span>
+    </div>
+    <div class="footer-right">
+      Dibuat dengan ❤️ untuk budaya Indonesia.
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
